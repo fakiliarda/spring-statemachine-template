@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.yaf</groupId>
-    <artifactId>spring-statemachine-training</artifactId>
+    <artifactId>spring-statemachine-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-statemachine-training</name>
-    <description>Spring state machine training</description>
+    <name>spring-statemachine-template</name>
+    <description>Spring state machine template</description>
     <properties>
         <java.version>11</java.version>
     </properties>
