@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Builder
 @Getter
 @Setter
-public class LightGroup {
+public class LightGroupAction {
 
     @Id
     @GeneratedValue
