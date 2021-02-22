@@ -1,5 +1,6 @@
-package com.yaf.statemachine.domain;
+package com.yaf.statemachine.statemachine;
 
+import com.yaf.statemachine.domain.LightGroupState;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,10 +12,11 @@ import javax.persistence.*;
 @Builder
 @Getter
 @Setter
-public class LightGroupAction {
+@Table(name = "living_room_sm")
+public class LivingRoomStateMachine {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)

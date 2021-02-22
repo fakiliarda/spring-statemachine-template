@@ -1,16 +1,14 @@
 package com.yaf.statemachine.service;
 
 
-import com.yaf.statemachine.domain.LightGroupAction;
 import com.yaf.statemachine.domain.LightGroupEvent;
 import com.yaf.statemachine.domain.LightGroupState;
+import com.yaf.statemachine.statemachine.LivingRoomStateMachine;
 import org.springframework.statemachine.StateMachine;
-import org.springframework.stereotype.Service;
 
-@Service
 public interface LightService {
 
-    LightGroupAction newLightGroupAction(LightGroupAction lightGroup);
+    LivingRoomStateMachine createLivingRoomStateMachine(LivingRoomStateMachine livingRoomStateMachine);
 
     StateMachine<LightGroupState, LightGroupEvent> turnOnLights(Long lightGroupId);
 
