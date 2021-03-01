@@ -23,13 +23,10 @@ public class LightActionStateChangeInterceptor extends StateMachineInterceptorAd
     @Override
     public void preStateChange(State<LightGroupState, LightGroupEvent> state, Message<LightGroupEvent> message, Transition<LightGroupState, LightGroupEvent> transition, StateMachine<LightGroupState, LightGroupEvent> stateMachine) {
 
-        Optional.ofNullable(message).ifPresent(msg -> {
-            Optional.ofNullable(Long.class.cast(msg.getHeaders().getOrDefault(LightServiceImpl.LIGHTGROUP_ID_HEADER, -1L)))
-                    .ifPresent(id -> {
-                        var livingRoomStateMachine = livingRoomStateMachineRepository.getOne(id);
-                        livingRoomStateMachine.setState(state.getId());
-                        livingRoomStateMachineRepository.save(livingRoomStateMachine);
-                    });
+        Optional.ofNullable(message).flatMap(msg -> Optional.ofNullable((Long) msg.getHeaders().getOrDefault(LightServiceImpl.LIGHTGROUP_ID_HEADER, -1L))).ifPresent(id -> {
+            var livingRoomStateMachine = livingRoomStateMachineRepository.getOne(id);
+            livingRoomStateMachine.setState(state.getId());
+            livingRoomStateMachineRepository.save(livingRoomStateMachine);
         });
 
     }

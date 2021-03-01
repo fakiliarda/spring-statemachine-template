@@ -33,41 +33,9 @@ public class LightServiceImpl implements LightService {
 
     @Transactional
     @Override
-    public StateMachine<LightGroupState, LightGroupEvent> turnOnLights(Long livingRoomStateMachineId) {
-        StateMachine<LightGroupState, LightGroupEvent> sm = build(livingRoomStateMachineId);
-        sendEvent(livingRoomStateMachineId, sm, LightGroupEvent.TURN_ALL_LIGHTS_ON);
-        return sm;
-    }
-
-    @Transactional
-    @Override
-    public StateMachine<LightGroupState, LightGroupEvent> turnOffLights(Long livingRoomStateMachineId) {
-        StateMachine<LightGroupState, LightGroupEvent> sm = build(livingRoomStateMachineId);
-        sendEvent(livingRoomStateMachineId, sm, LightGroupEvent.TURN_ALL_LIGHTS_OFF);
-        return sm;
-    }
-
-    @Transactional
-    @Override
-    public StateMachine<LightGroupState, LightGroupEvent> turnOnOneLight(Long livingRoomStateMachineId) {
-        StateMachine<LightGroupState, LightGroupEvent> sm = build(livingRoomStateMachineId);
-        sendEvent(livingRoomStateMachineId, sm, LightGroupEvent.TURN_ALL_LIGHTS_ON); //TODO
-        return sm;
-    }
-
-    @Transactional
-    @Override
-    public StateMachine<LightGroupState, LightGroupEvent> notificationReceived(Long livingRoomStateMachineId) {
-        StateMachine<LightGroupState, LightGroupEvent> sm = build(livingRoomStateMachineId);
-        sendEvent(livingRoomStateMachineId, sm, LightGroupEvent.NOTIFICATION_RECEIVED);
-        return sm;
-    }
-
-    @Transactional
-    @Override
-    public StateMachine<LightGroupState, LightGroupEvent> remind(Long livingRoomStateMachineId) {
-        StateMachine<LightGroupState, LightGroupEvent> sm = build(livingRoomStateMachineId);
-        sendEvent(livingRoomStateMachineId, sm, LightGroupEvent.REMIND_SOMETHING);
+    public StateMachine<LightGroupState, LightGroupEvent> execute(Long livingRoomStateMachineId, LightGroupEvent event) {
+        var sm = build(livingRoomStateMachineId);
+        sendEvent(livingRoomStateMachineId, sm, event);
         return sm;
     }
 

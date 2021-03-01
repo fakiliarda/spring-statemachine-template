@@ -10,14 +10,16 @@ public interface LightService {
 
     LivingRoomStateMachine createLivingRoomStateMachine(LivingRoomStateMachine livingRoomStateMachine);
 
-    StateMachine<LightGroupState, LightGroupEvent> turnOnLights(Long lightGroupId);
+    StateMachine<LightGroupState, LightGroupEvent> execute(Long livingRoomStateMachineId, LightGroupEvent event);
 
-    StateMachine<LightGroupState, LightGroupEvent> turnOffLights(Long lightGroupId);
-
-    StateMachine<LightGroupState, LightGroupEvent> turnOnOneLight(Long lightGroupId);
-
-    StateMachine<LightGroupState, LightGroupEvent> notificationReceived(Long lightGroupId);
-
-    StateMachine<LightGroupState, LightGroupEvent> remind(Long lightGroupId);
+//    StateMachine<LightGroupState, LightGroupEvent> turnOnLights(Long livingRoomStateMachineId);
+//
+//    StateMachine<LightGroupState, LightGroupEvent> turnOffLights(Long livingRoomStateMachineId);
+//
+//    StateMachine<LightGroupState, LightGroupEvent> turnOnOneLight(Long livingRoomStateMachineId);
+//
+//    StateMachine<LightGroupState, LightGroupEvent> notificationReceived(Long livingRoomStateMachineId);
+//
+//    StateMachine<LightGroupState, LightGroupEvent> remind(Long livingRoomStateMachineId);
 
 }
